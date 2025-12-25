@@ -925,7 +925,7 @@ function FAQSection() {
   ];
 
   return (
-    <section className="section bg-slate-50 dark:bg-slate-900/50">
+    <section id="faq" className="section bg-slate-50 dark:bg-slate-900/50">
       <div className="container-lg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -966,7 +966,7 @@ function FAQSection() {
 
 function ContactSection() {
   return (
-    <section className="section">
+    <section id="contact" className="section">
       <div className="container-lg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
