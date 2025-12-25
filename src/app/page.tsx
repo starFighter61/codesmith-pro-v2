@@ -68,6 +68,9 @@ export default function HomePage() {
       {/* FAQ */}
       <FAQSection />
 
+      {/* Contact/Support */}
+      <ContactSection />
+
       {/* CTA Section */}
       <CTASection />
     </div>
@@ -899,6 +902,26 @@ function FAQSection() {
       answer:
         "Your code is processed securely and never used to train AI models. Pro users can optionally save their history, but it's encrypted and only visible to you.",
     },
+    {
+      question: "What programming languages are supported?",
+      answer:
+        "CodeSmith Pro supports all major programming languages including JavaScript, TypeScript, Python, Java, C#, Go, Rust, Ruby, PHP, Swift, Kotlin, and many more. Our AI can understand and translate between these languages.",
+    },
+    {
+      question: "How accurate is the AI analysis?",
+      answer:
+        "Our AI is powered by the latest GPT-4 models and provides highly accurate code analysis. However, we always recommend reviewing AI suggestions before implementing them in production code.",
+    },
+    {
+      question: "Do you offer team or enterprise plans?",
+      answer:
+        "Yes! We offer team plans with shared billing, usage analytics, and admin controls. Contact our support team at support@westlacomputerexpert.tech for custom enterprise pricing.",
+    },
+    {
+      question: "How do I get support if I have issues?",
+      answer:
+        "You can reach our support team by phone at (310) 850-8093 or email at support@westlacomputerexpert.tech. We're available Monday-Friday, 9am-6pm PST.",
+    },
   ];
 
   return (
@@ -935,6 +958,99 @@ function FAQSection() {
               </p>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section className="section">
+      <div className="container-lg">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto mb-12"
+        >
+          <span className="badge-primary mb-4">Contact Us</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+            Need help? We&apos;re here for you
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400">
+            Our support team is ready to assist you with any questions about CodeSmith Pro
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {/* Phone */}
+          <motion.a
+            href="tel:+13108508093"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="card p-8 text-center hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform">
+              📞
+            </div>
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+              Call Us
+            </h3>
+            <p className="text-lg font-medium text-brand-600 dark:text-brand-400 mb-2">
+              (310) 850-8093
+            </p>
+            <p className="text-sm text-slate-500">
+              Mon-Fri, 9am-6pm PST
+            </p>
+          </motion.a>
+
+          {/* Email */}
+          <motion.a
+            href="mailto:support@westlacomputerexpert.tech"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="card p-8 text-center hover:shadow-lg transition-shadow cursor-pointer group"
+          >
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform">
+              ✉️
+            </div>
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+              Email Support
+            </h3>
+            <p className="text-base font-medium text-brand-600 dark:text-brand-400 mb-2 break-all">
+              support@westlacomputerexpert.tech
+            </p>
+            <p className="text-sm text-slate-500">
+              We respond within 24 hours
+            </p>
+          </motion.a>
+
+          {/* Response Time */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="card p-8 text-center"
+          >
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl">
+              ⚡
+            </div>
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+              Fast Support
+            </h3>
+            <p className="text-lg font-medium text-brand-600 dark:text-brand-400 mb-2">
+              Priority Response
+            </p>
+            <p className="text-sm text-slate-500">
+              Pro users get priority support
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

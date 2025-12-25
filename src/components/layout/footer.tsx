@@ -57,7 +57,7 @@ export function Footer() {
                     <div
                         style={{
                             display: "grid",
-                            gridTemplateColumns: "2fr 1fr 1fr 1fr",
+                            gridTemplateColumns: "2fr 1fr 1fr 1fr 1.5fr",
                             gap: "40px",
                         }}
                     >
@@ -228,6 +228,51 @@ export function Footer() {
                                     </li>
                                 ))}
                             </ul>
+                        </div>
+
+                        {/* Customer Support */}
+                        <div>
+                            <h4
+                                style={{
+                                    fontWeight: "600",
+                                    color: "#1e293b",
+                                    marginBottom: "16px",
+                                    fontSize: "14px",
+                                }}
+                            >
+                                Support
+                            </h4>
+                            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                                <a
+                                    href="tel:+13108508093"
+                                    style={{
+                                        fontSize: "14px",
+                                        color: "#475569",
+                                        textDecoration: "none",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                    }}
+                                >
+                                    📞 (310) 850-8093
+                                </a>
+                                <a
+                                    href="mailto:support@westlacomputerexpert.tech"
+                                    style={{
+                                        fontSize: "14px",
+                                        color: "#475569",
+                                        textDecoration: "none",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                    }}
+                                >
+                                    ✉️ support@westlacomputerexpert.tech
+                                </a>
+                                <p style={{ fontSize: "13px", color: "#64748b", marginTop: "8px", lineHeight: "1.5" }}>
+                                    Available Mon-Fri<br />9am - 6pm PST
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

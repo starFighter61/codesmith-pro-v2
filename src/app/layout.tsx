@@ -34,9 +34,17 @@ export const metadata: Metadata = {
     "AI pair programmer",
     "code documentation",
     "programming help",
+    "code translator",
+    "security analysis",
+    "performance optimization",
   ],
   authors: [{ name: "CodeSmith Pro" }],
   creator: "CodeSmith Pro",
+  publisher: "CodeSmith Pro",
+  metadataBase: new URL("https://codesmith.pro"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -50,7 +58,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "CodeSmith Pro",
+        alt: "CodeSmith Pro - AI-Powered Developer Tools",
       },
     ],
   },
@@ -65,6 +73,16 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code",
   },
 };
 
