@@ -348,6 +348,7 @@ function FeaturesSection() {
         "Get clear, concise explanations of any code snippet. Perfect for understanding unfamiliar patterns or learning new concepts.",
       color: "from-blue-500 to-cyan-500",
       free: true,
+      toolId: "explain",
     },
     {
       icon: Bug,
@@ -356,6 +357,7 @@ function FeaturesSection() {
         "Find and fix bugs with AI-powered analysis. Get root cause explanations and working solutions in seconds.",
       color: "from-red-500 to-orange-500",
       free: true,
+      toolId: "debug",
     },
     {
       icon: RefreshCw,
@@ -364,6 +366,7 @@ function FeaturesSection() {
         "Transform messy code into clean, maintainable solutions. Apply best practices automatically.",
       color: "from-green-500 to-emerald-500",
       free: true,
+      toolId: "refactor",
     },
     {
       icon: Code2,
@@ -372,6 +375,7 @@ function FeaturesSection() {
         "Convert code between programming languages while preserving functionality and idioms.",
       color: "from-purple-500 to-pink-500",
       pro: true,
+      toolId: "translate",
     },
     {
       icon: FileText,
@@ -380,6 +384,7 @@ function FeaturesSection() {
         "Create comprehensive documentation with function descriptions, parameters, and usage examples.",
       color: "from-amber-500 to-yellow-500",
       free: true,
+      toolId: "document",
     },
     {
       icon: Shield,
@@ -388,6 +393,7 @@ function FeaturesSection() {
         "Identify vulnerabilities and security issues with severity ratings and secure alternatives.",
       color: "from-rose-500 to-red-500",
       pro: true,
+      toolId: "security",
     },
     {
       icon: Zap,
@@ -396,6 +402,7 @@ function FeaturesSection() {
         "Discover bottlenecks and get optimization suggestions with complexity analysis.",
       color: "from-brand-500 to-purple-500",
       pro: true,
+      toolId: "performance",
     },
     {
       icon: Lightbulb,
@@ -404,6 +411,7 @@ function FeaturesSection() {
         "Create professional README files for your projects with all the standard sections.",
       color: "from-teal-500 to-cyan-500",
       free: true,
+      toolId: "readme",
     },
   ];
 
@@ -437,35 +445,42 @@ function FeaturesSection() {
               transition={{ delay: index * 0.05 }}
               className="group relative"
             >
-              <div className="card card-hover h-full p-6">
-                {/* Gradient accent on hover */}
-                <div
-                  className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${feature.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
-                />
+              <Link href={`/tools?tool=${feature.toolId}`}>
+                <div className="card card-hover h-full p-6 cursor-pointer">
+                  {/* Gradient accent on hover */}
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${feature.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                  />
 
-                {/* Icon */}
-                <div
-                  className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${feature.color} shadow-lg mb-4`}
-                >
-                  <feature.icon className="w-6 h-6 text-white" />
+                  {/* Icon */}
+                  <div
+                    className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${feature.color} shadow-lg mb-4`}
+                  >
+                    <feature.icon className="w-6 h-6 text-white" />
+                  </div>
+
+                  {/* Badge */}
+                  {feature.pro && (
+                    <span className="badge-pro absolute top-4 right-4">PRO</span>
+                  )}
+                  {feature.free && (
+                    <span className="badge-success absolute top-4 right-4">FREE</span>
+                  )}
+
+                  {/* Content */}
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {feature.description}
+                  </p>
+
+                  {/* Try it arrow */}
+                  <div className="mt-4 flex items-center text-sm font-medium text-brand-600 dark:text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Try it now <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
                 </div>
-
-                {/* Badge */}
-                {feature.pro && (
-                  <span className="badge-pro absolute top-4 right-4">PRO</span>
-                )}
-                {feature.free && (
-                  <span className="badge-success absolute top-4 right-4">FREE</span>
-                )}
-
-                {/* Content */}
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

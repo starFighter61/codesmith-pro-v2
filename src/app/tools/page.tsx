@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import {
     BookOpen,
     Bug,
@@ -289,7 +290,8 @@ useEffect(() => () => search.cancel(), []);
 4. **Bundle with lodash-es** for tree-shaking support`,
 };
 
-export default function ToolsPage() {
+function ToolsContent() {
+    const searchParams = useSearchParams();
     const [activeTool, setActiveTool] = useState("explain");
     const [language, setLanguage] = useState("JavaScript");
     const [output, setOutput] = useState("");
@@ -299,6 +301,14 @@ export default function ToolsPage() {
     const [testMode, setTestMode] = useState(true); // Enable test mode for Pro features
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    // Read tool from URL on mount
+    useEffect(() => {
+        const toolFromUrl = searchParams.get("tool");
+        if (toolFromUrl && tools.some(t => t.id === toolFromUrl)) {
+            setActiveTool(toolFromUrl);
+        }
+    }, [searchParams]);
 
     const currentTool = tools.find((t) => t.id === activeTool);
 
@@ -601,5 +611,18 @@ export default function ToolsPage() {
         }
       `}</style>
         </div>
+    );
+}
+
+// Wrap with Suspense for useSearchParams
+export default function ToolsPage() {
+    return (
+        <Suspense fallback={
+            <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f8fafc" }}>
+                <div style={{ width: "40px", height: "40px", border: "3px solid #e2e8f0", borderTopColor: "#6366f1", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+            </div>
+        }>
+            <ToolsContent />
+        </Suspense>
     );
 }
